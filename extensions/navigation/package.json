@@ -16,25 +16,25 @@
     "react"
   ],
   "dependencies": {
-    "@types/lodash": "4.14.118",
-    "@types/node": "10.12.11",
-    "assert": "1.4.1",
-    "lodash": "4.17.11",
-    "rebound": "0.1.0",
-    "reactxp-experimental-navigation": "1.0.14"
+    "@types/lodash": "^4.14.123",
+    "@types/node": "^10.14.1",
+    "assert": "^1.4.1",
+    "lodash": "^4.17.11",
+    "reactxp-experimental-navigation": "1.0.14",
+    "rebound": "^0.1.0"
   },
   "peerDependencies": {
-    "react": "^16.4.0",
-    "reactxp": "^1.5.0",
-    "react-dom": "^16.4.0",
-    "react-native": "^0.55.0",
-    "react-native-windows": "^0.54.0"
+    "react": "16.6.3",
+    "reactxp": "1.6.0-rc.3",
+    "react-dom": "16.6.3",
+    "react-native": "0.58.6",
+    "react-native-windows": "^0.57.0-rc.5"
   },
   "devDependencies": {
-    "@types/react-native": "0.57.15",
-    "reactxp": "^1.5.0",
-    "tslint": "5.11.0",
-    "typescript": "3.2.1"
+    "@types/react-native": "^0.57.40",
+    "reactxp": "1.6.0-rc.3",
+    "tslint": "^5.14.0",
+    "typescript": "^3.3.3333"
   },
   "author": "ReactXP Team <reactxp@microsoft.com>",
   "license": "MIT",
