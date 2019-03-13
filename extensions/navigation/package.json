@@ -18,7 +18,6 @@
   "dependencies": {
     "@types/lodash": "^4.14.123",
     "@types/node": "^10.14.1",
-    "assert": "^1.4.1",
     "lodash": "^4.17.11",
     "reactxp-experimental-navigation": "1.0.14",
     "rebound": "^0.1.0"
