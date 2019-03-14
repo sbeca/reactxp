@@ -19,11 +19,11 @@ import {
     NavigatorRoute,
     CommandType,
 } from '../common/Types';
-import NavigatorExperimentalDelegate from './NavigatorExperimentalDelegate';
+import ReactNavigationDelegate from './ReactNavigationDelegate';
 
 export class DefaultDelegateSelector implements DelegateSelector {
     getNavigatorDelegate(navigator: BaseNavigator<NavigatorState>) {
-            return new NavigatorExperimentalDelegate(navigator);
+            return new ReactNavigationDelegate(navigator);
     }
 }
 
@@ -34,7 +34,7 @@ export class NavigatorImpl extends BaseNavigator<NavigatorState> {
     constructor(initialProps: NavigatorProps) {
         super(initialProps);
         if (!initialProps.delegateSelector) {
-            this._delegate = new NavigatorExperimentalDelegate(this);
+            this._delegate = new ReactNavigationDelegate(this);
         } else {
             this._delegate = initialProps.delegateSelector.getNavigatorDelegate(this);
         }
