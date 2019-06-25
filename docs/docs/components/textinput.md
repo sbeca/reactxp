@@ -30,15 +30,25 @@ allowFontScaling: boolean = true; // Android and iOS only
 // Auto-capitalization mode
 autoCapitalize: 'none' | 'sentences' | 'words' | 'characters';
 
+// Android and web only prop for specifying autocomplete hints for the system,
+// so it can provide autofill. On Android, the default is for autocomplete to
+// be on and Android will attempt to determine the type of autocomplete from
+// the type of content. On web, the autocomplete setting is just a boolean
+// where the default is 'on'. If any value is provided that isn't 'off' then
+// web will use 'on'.
+autoCompleteType: 'off'| 'username' | 'password' | 'email' | 'name' | 'tel'
+        | 'street-address' | 'postal-code' | 'cc-number' | 'cc-csc' | 'cc-exp'
+        | 'cc-exp-month' | 'cc-exp-year';
+
 // Should auto-correction be applied to contents?
 autoCorrect: boolean = true;
 
-// Should be focused when the component is mounted, see also View's arbitrateFocus
-// property.
-// WARNING: autoFocus=true means that this TextInput's requestFocus() method will be
-// called, however calling requestFocus() might have no effect (for example the
-// input is disabled), the application has to handle this either while setting this
-// property or in the View's FocusArbitrator callback.
+// Should be focused when the component is mounted, see also View's
+// arbitrateFocus property.
+// WARNING: autoFocus=true means that this TextInput's requestFocus() method
+// will be called, however calling requestFocus() might have no effect (for
+// example the input is disabled), the application has to handle this either
+// while setting this property or in the View's FocusArbitrator callback.
 autoFocus: boolean = false;
 
 // Should focus be lost after submitting?

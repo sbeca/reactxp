@@ -121,10 +121,10 @@ class TextInputPlaceholderSupport {
         return selectors
             .map(pseudoSelector =>
                 `.${className}${pseudoSelector} {\n` +
-                    `  opacity: 1;\n` +
-                    `  color: ${placeholderColor};\n` +
-                    `}`
-                ).join('\n');
+                `  opacity: 1;\n` +
+                `  color: ${placeholderColor};\n` +
+                `}`
+            ).join('\n');
     }
 }
 
@@ -215,7 +215,13 @@ export class TextInput extends React.Component<Types.TextInputProps, TextInputSt
 
         // By default, the control is editable.
         const editable = (this.props.editable !== undefined ? this.props.editable : true);
+
         const spellCheck = (this.props.spellCheck !== undefined ? this.props.spellCheck : this.props.autoCorrect);
+
+        let autoComplete;
+        if (this.props.autoCompleteType !== undefined) {
+            autoComplete = (this.props.autoCompleteType === 'off' ? 'off' : 'on');
+        }
 
         const className = this.props.placeholderTextColor !== undefined ?
             TextInputPlaceholderSupport.getClassName(this.props.placeholderTextColor) : undefined;
@@ -228,9 +234,11 @@ export class TextInput extends React.Component<Types.TextInputProps, TextInputSt
                     style={ combinedStyles }
                     value={ this.state.inputValue }
                     title={ this.props.title }
+                    name={ this.props.title }
                     tabIndex={ this.props.tabIndex }
 
                     autoCorrect={ this.props.autoCorrect === false ? 'off' : undefined }
+                    autoComplete={ autoComplete }
                     spellCheck={ spellCheck }
                     disabled={ !editable }
                     maxLength={ this.props.maxLength }
@@ -261,11 +269,13 @@ export class TextInput extends React.Component<Types.TextInputProps, TextInputSt
                     style={ combinedStyles }
                     value={ this.state.inputValue }
                     title={ this.props.title }
+                    name={ this.props.title }
                     tabIndex={ this.props.tabIndex }
 
                     className={ className }
 
                     autoCorrect={ this.props.autoCorrect === false ? 'off' : undefined }
+                    autoComplete={ autoComplete }
                     spellCheck={ spellCheck }
                     disabled={ !editable }
                     maxLength={ this.props.maxLength }
@@ -362,7 +372,7 @@ export class TextInput extends React.Component<Types.TextInputProps, TextInputSt
         element.style.height = element.scrollHeight + 'px';
 
         scrollTops.forEach(obj => {
-          obj.el.scrollTop = obj.top;
+            obj.el.scrollTop = obj.top;
         });
 
     }
@@ -428,6 +438,9 @@ export class TextInput extends React.Component<Types.TextInputProps, TextInputSt
 
         if (this.props.secureTextEntry) {
             keyboardTypeValue = 'password';
+            // password inputs need wrapInForm because otherwise Chrome throws a warning which includes the
+            // offending input, the display of which can sometimes include the password value in plaintext
+            wrapInForm = true;
         }
 
         return { keyboardTypeValue, wrapInForm, pattern };

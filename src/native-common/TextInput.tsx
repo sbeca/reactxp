@@ -89,6 +89,7 @@ export class TextInput extends React.Component<Types.TextInputProps, TextInputSt
             value: this.state.inputValue,
 
             autoCorrect: this.props.autoCorrect,
+            autoCompleteType: this.props.autoCompleteType,
             spellCheck: this.props.spellCheck,
             autoCapitalize: this.props.autoCapitalize,
             keyboardType: this.props.keyboardType,
