@@ -907,6 +907,8 @@ export interface LinkProps extends CommonStyledProps<LinkStyleRuleSet, RX.Link> 
 // TextInput
 export interface TextInputPropsShared<C = React.Component> extends CommonProps<C>, CommonAccessibilityProps {
     autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters';
+    autoCompleteType?: 'off' | 'username' | 'password' | 'email' | 'name' | 'tel' | 'street-address'
+        | 'postal-code' | 'cc-number' | 'cc-csc' | 'cc-exp' | 'cc-exp-month' | 'cc-exp-year';
     autoCorrect?: boolean;
     autoFocus?: boolean; // The component is a candidate for being autofocused.
     blurOnSubmit?: boolean;
@@ -921,7 +923,7 @@ export interface TextInputPropsShared<C = React.Component> extends CommonProps<C
     value?: string;
     title?: string;
 
-     // Should fonts be scaled according to system setting? Defaults
+    // Should fonts be scaled according to system setting? Defaults
     // to true. iOS and Android only.
     allowFontScaling?: boolean;
 
