@@ -58,6 +58,11 @@ scrollYAnimatedValue?: RX.Types.AnimatedValue;
 // Android only property to control overScroll mode
 overScrollMode?: 'auto' | 'always' | 'never';
 
+// Experimental mobile only prop. When true, offscreen child views (whose overflow value is hidden)
+// are removed from their native backing superview when offscreen. This can improve scrolling
+// performance on long lists. The default value is false.
+removeClippedSubviews?: boolean;
+
 // Snap to page boundaries?
 pagingEnabled: boolean = false; // Android & iOS only
 snapToInterval: number = undefined; // iOS only

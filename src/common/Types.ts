@@ -857,6 +857,11 @@ export interface ScrollViewProps extends CommonStyledProps<ScrollViewStyleRuleSe
     // Android only property to control overScroll mode
     overScrollMode?: 'auto' | 'always' | 'never';
 
+    // Experimental mobile only prop. When true, offscreen child views (whose overflow value is hidden)
+    // are removed from their native backing superview when offscreen. This can improve scrolling
+    // performance on long lists. The default value is false.
+    removeClippedSubviews?: boolean;
+
     // iOS-only property to control scroll indicator insets
     scrollIndicatorInsets?: ScrollIndicatorInsets;
 

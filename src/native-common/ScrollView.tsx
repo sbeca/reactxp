@@ -127,7 +127,7 @@ export class ScrollView extends ViewBase<RX.Types.ScrollViewProps, RX.Types.Stat
             snapToInterval: this.props.snapToInterval,
             decelerationRate: typeof this.props.snapToInterval === 'number' ? 'fast' : undefined,
             scrollsToTop: this.props.scrollsToTop,
-            removeClippedSubviews: false,
+            removeClippedSubviews: this.props.removeClippedSubviews !== undefined ? this.props.removeClippedSubviews : false,
             overScrollMode: this.props.overScrollMode,
             scrollIndicatorInsets: this.props.scrollIndicatorInsets,
             onScrollBeginDrag: this.props.onScrollBeginDrag,
