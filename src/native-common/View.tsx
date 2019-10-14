@@ -404,6 +404,10 @@ export class View extends ViewBase<RX.Types.ViewProps, RX.Types.Stateless, RN.Vi
         if (this.props.useSafeInsets) {
             this._internalProps.style = Styles.combine([this._internalProps.style, safeInsetsStyle]);
         }
+
+        if (this.props.viewLayerTypeAndroid) {
+            this._internalProps.renderToHardwareTextureAndroid = (this.props.viewLayerTypeAndroid === 'hardware');
+        }
     }
 
     private _onKeyPress = (e: RN.NativeSyntheticEvent<RN.TextInputKeyPressEventData>) => {
