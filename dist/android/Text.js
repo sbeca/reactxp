@@ -46,7 +46,7 @@ var Text = /** @class */ (function (_super) {
     // to null to indicate the default behavior.
     Text.prototype.render = function () {
         var importantForAccessibility = AccessibilityUtil_1.default.importantForAccessibilityToString(this.props.importantForAccessibility);
-        return (React.createElement(RN.Text, { style: this._getStyles(), ref: this._onMount, importantForAccessibility: importantForAccessibility, numberOfLines: this.props.numberOfLines === 0 ? undefined : this.props.numberOfLines, allowFontScaling: this.props.allowFontScaling, ellipsizeMode: this.props.ellipsizeMode, onPress: this.props.onPress, textBreakStrategy: this.props.textBreakStrategy, testID: this.props.testId }, this.props.children));
+        return (React.createElement(RN.Text, { style: this._getStyles(), ref: this._onMount, importantForAccessibility: importantForAccessibility, numberOfLines: this.props.numberOfLines === 0 ? undefined : this.props.numberOfLines, allowFontScaling: this.props.allowFontScaling, maxFontSizeMultiplier: this.props.maxFontSizeMultiplier, ellipsizeMode: this.props.ellipsizeMode, onPress: this.props.onPress, textBreakStrategy: this.props.textBreakStrategy, testID: this.props.testId }, this.props.children));
     };
     return Text;
 }(Text_1.Text));
