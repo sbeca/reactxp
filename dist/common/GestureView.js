@@ -283,8 +283,8 @@ var GestureView = /** @class */ (function (_super) {
             return false;
         }
         // Has the user started to pinch or zoom?
-        if (this._calcDistance(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY) >=
-            _pinchZoomPixelThreshold) {
+        var distance = this._calcDistance(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
+        if (distance >= _pinchZoomPixelThreshold) {
             return true;
         }
         return false;
@@ -398,7 +398,7 @@ var GestureView = /** @class */ (function (_super) {
                 angle: angle,
                 isComplete: isComplete,
                 timeStamp: e.timeStamp,
-                isTouch: !GestureView._isActuallyMouseEvent(e)
+                isTouch: !GestureView._isActuallyMouseEvent(e),
             };
         }
         if (this.props.onPinchZoom) {
@@ -429,7 +429,7 @@ var GestureView = /** @class */ (function (_super) {
             clientY: clientY,
             pageX: pageX,
             pageY: pageY,
-            isTouch: !GestureView._isActuallyMouseEvent(e)
+            isTouch: !GestureView._isActuallyMouseEvent(e),
         };
     };
     GestureView.prototype._mouseEventToTapGestureState = function (e) {
@@ -440,7 +440,7 @@ var GestureView = /** @class */ (function (_super) {
             clientY: e.clientY - xyOffset.y,
             pageX: e.pageX || 0,
             pageY: e.pageY || 0,
-            isTouch: false
+            isTouch: false,
         };
     };
     GestureView.prototype._getClientXYOffset = function () {
@@ -476,7 +476,7 @@ var GestureView = /** @class */ (function (_super) {
             velocityY: velocityY,
             isComplete: isComplete,
             timeStamp: e.timeStamp,
-            isTouch: !GestureView._isActuallyMouseEvent(this._lastGestureStartEvent)
+            isTouch: !GestureView._isActuallyMouseEvent(this._lastGestureStartEvent),
         };
         switch (gestureType) {
             case GestureType.Pan:

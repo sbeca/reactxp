@@ -56,7 +56,7 @@ var UserInterface = /** @class */ (function (_super) {
                 x: componentBoundingRect.left,
                 y: componentBoundingRect.top,
                 width: componentBoundingRect.width,
-                height: componentBoundingRect.height
+                height: componentBoundingRect.height,
             });
         }
         return deferred.promise();
@@ -82,7 +82,7 @@ var UserInterface = /** @class */ (function (_super) {
                 x: componentBoundingRect.left - ancestorBoundingRect.left,
                 y: componentBoundingRect.top - ancestorBoundingRect.top,
                 width: componentBoundingRect.width,
-                height: componentBoundingRect.height
+                height: componentBoundingRect.height,
             });
         }
         return deferred.promise();
@@ -93,7 +93,7 @@ var UserInterface = /** @class */ (function (_super) {
             x: 0,
             y: 0,
             width: window.innerWidth,
-            height: window.innerHeight
+            height: window.innerHeight,
         };
     };
     UserInterface.prototype.getContentSizeMultiplier = function () {

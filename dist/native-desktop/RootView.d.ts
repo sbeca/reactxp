@@ -93,5 +93,5 @@ declare const RootViewUsingProps: {
     };
     childContextTypes: PropTypes.ValidationMap<any>;
 } & typeof RootViewUsingPropsBase;
-export { BaseRootViewProps, RootViewPropsWithMainViewType, RootViewState, BaseRootView, RootViewUsingStore as RootView, RootViewUsingProps };
+export { BaseRootViewProps, RootViewPropsWithMainViewType, RootViewState, BaseRootView, RootViewUsingStore as RootView, RootViewUsingProps, };
 export default RootViewUsingStore;

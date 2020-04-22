@@ -89,7 +89,7 @@ var GestureView = /** @class */ (function (_super) {
             },
             // Something else wants to become responder. Should this view release the responder?
             // Returning true allows release
-            onPanResponderTerminationRequest: function (e, gestureState) { return !!_this.props.releaseOnRequest; }
+            onPanResponderTerminationRequest: function (e, gestureState) { return !!_this.props.releaseOnRequest; },
         });
         return _this;
     }
@@ -100,7 +100,7 @@ var GestureView = /** @class */ (function (_super) {
         var extendedProps = {
             onFocus: this.props.onFocus,
             onBlur: this.props.onBlur,
-            onKeyPress: this.props.onKeyPress ? this._onKeyPress : undefined
+            onKeyPress: this.props.onKeyPress ? this._onKeyPress : undefined,
         };
         if (_isNativeMacOs && App_1.default.supportsExperimentalKeyboardNavigation && this.props.onTap) {
             extendedProps.onClick = this._macos_sendTapEvent;

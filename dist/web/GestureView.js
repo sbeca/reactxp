@@ -41,8 +41,8 @@ var _styles = {
         flexShrink: 0,
         overflow: 'hidden',
         alignItems: 'stretch',
-        justifyContent: 'center'
-    }
+        justifyContent: 'center',
+    },
 };
 // Unique to web
 var _preferredPanRatio = 3;
@@ -121,7 +121,7 @@ var GestureView = /** @class */ (function (_super) {
                 dy: ft.clientY - _this._initialTouch.y,
                 // TODO: calculate velocity?
                 vx: 0,
-                vy: 0
+                vy: 0,
             };
             _this._onTouchChange(GestureView._reactTouchEventToBasic(e), _this._ongoingGesture);
         };
@@ -143,7 +143,7 @@ var GestureView = /** @class */ (function (_super) {
             _this._gestureTypeLocked = true;
             var gsBasic = {
                 dx: gestureState.clientX - gestureState.initialClientX,
-                dy: gestureState.clientY - gestureState.initialClientY
+                dy: gestureState.clientY - gestureState.initialClientY,
             };
             if (_this._shouldRespondToPan(gsBasic)) {
                 return GestureView_1.GestureType.Pan;
@@ -168,7 +168,7 @@ var GestureView = /** @class */ (function (_super) {
                         pageY: e.pageY,
                         scrollAmount: e.deltaY,
                         timeStamp: e.timeStamp,
-                        isTouch: false
+                        isTouch: false,
                     };
                     _this.props.onScrollWheel(scrollWheelEvent);
                 }
@@ -282,7 +282,7 @@ var GestureView = /** @class */ (function (_super) {
                 _this._sendMousePanEvent(gestureState);
                 _this._pendingMouseGestureType = GestureView_1.GestureType.None;
                 _this._gestureTypeLocked = false;
-            }
+            },
         });
     };
     GestureView.prototype._disposeMouseResponder = function () {
@@ -366,7 +366,7 @@ var GestureView = /** @class */ (function (_super) {
             clientX: l.clientX,
             clientY: l.clientY,
             pageX: l.pageX,
-            pageY: l.pageY
+            pageY: l.pageY,
         };
     };
     GestureView.prototype._getClientXYOffset = function () {
@@ -377,7 +377,7 @@ var GestureView = /** @class */ (function (_super) {
         return this._container ? this._container.getBoundingClientRect() : null;
     };
     GestureView.contextTypes = {
-        isInRxMainView: PropTypes.bool
+        isInRxMainView: PropTypes.bool,
     };
     return GestureView;
 }(GestureView_1.default));

@@ -42,8 +42,8 @@ var lodashMini_1 = require("./utils/lodashMini");
 var Styles_1 = require("./Styles");
 var _styles = {
     defaultText: Styles_1.default.createTextStyle({
-        overflow: 'hidden'
-    })
+        overflow: 'hidden',
+    }),
 };
 var Text = /** @class */ (function (_super) {
     __extends(Text, _super);
@@ -77,7 +77,7 @@ var Text = /** @class */ (function (_super) {
         var onPress = (this.props.onPress || this.props.onContextMenu) ? this._onPress : undefined;
         var importantForAccessibility = AccessibilityUtil_1.default.importantForAccessibilityToString(this.props.importantForAccessibility);
         var extendedProps = this._getExtendedProperties();
-        return (React.createElement(RN.Text, __assign({ style: this._getStyles(), ref: this._onMount, importantForAccessibility: importantForAccessibility, numberOfLines: this.props.numberOfLines, allowFontScaling: this.props.allowFontScaling, onPress: onPress, selectable: this.props.selectable, textBreakStrategy: 'simple', ellipsizeMode: this.props.ellipsizeMode, testID: this.props.testId }, extendedProps), this.props.children));
+        return (React.createElement(RN.Text, __assign({ style: this._getStyles(), ref: this._onMount, importantForAccessibility: importantForAccessibility, numberOfLines: this.props.numberOfLines, allowFontScaling: this.props.allowFontScaling, maxFontSizeMultiplier: this.props.maxFontSizeMultiplier, onPress: onPress, selectable: this.props.selectable, textBreakStrategy: 'simple', ellipsizeMode: this.props.ellipsizeMode, testID: this.props.testId }, extendedProps), this.props.children));
     };
     Text.prototype.componentDidMount = function () {
         if (this.props.autoFocus) {
@@ -122,10 +122,10 @@ var Text = /** @class */ (function (_super) {
     };
     Text.contextTypes = {
         focusArbitrator: PropTypes.object,
-        isRxParentAContextMenuResponder: PropTypes.bool
+        isRxParentAContextMenuResponder: PropTypes.bool,
     };
     Text.childContextTypes = {
-        isRxParentAText: PropTypes.bool.isRequired
+        isRxParentAText: PropTypes.bool.isRequired,
     };
     return Text;
 }(React.Component));

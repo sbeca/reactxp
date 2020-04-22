@@ -8,7 +8,6 @@
  * Manages focusable elements for better keyboard navigation.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-// tslint:disable:no-invalid-this
 var PropTypes = require("prop-types");
 var AppConfig_1 = require("../../common/AppConfig");
 var Interfaces_1 = require("../../common/Interfaces");
@@ -52,7 +51,7 @@ var FocusManager = /** @class */ (function () {
             limitedCountAccessible: 0,
             onFocus: function () {
                 FocusManager._currentFocusedComponent = storedComponent;
-            }
+            },
         };
         component.focusableComponentId = componentId;
         FocusManager._allFocusableComponents[componentId] = storedComponent;
@@ -233,9 +232,7 @@ var FocusManager = /** @class */ (function () {
     FocusManager.unsubscribe = function (component, callback) {
         var storedComponent = FocusManager._getStoredComponent(component);
         if (storedComponent && storedComponent.callbacks) {
-            storedComponent.callbacks = storedComponent.callbacks.filter(function (cb) {
-                return cb !== callback;
-            });
+            storedComponent.callbacks = storedComponent.callbacks.filter(function (cb) { return cb !== callback; });
         }
     };
     FocusManager.prototype.setRestrictionStateCallback = function (callback) {

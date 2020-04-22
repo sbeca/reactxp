@@ -80,7 +80,7 @@ var Text = /** @class */ (function (_super) {
         if (this._mountedComponent) {
             var importantForAccessibility = this.getImportantForAccessibility();
             this._mountedComponent.setNativeProps({
-                importantForAccessibility: importantForAccessibility
+                importantForAccessibility: importantForAccessibility,
             });
         }
     };

@@ -93,7 +93,6 @@ var ReactXP;
 })(ReactXP || (ReactXP = {}));
 // -- STRANGE THINGS GOING ON HERE --
 // See web/ReactXP.ts for more details.
-// tslint:disable-next-line
 var _rxImplementsRxInterface = ReactXP;
 _rxImplementsRxInterface = _rxImplementsRxInterface;
 module.exports = ReactXP;

@@ -56,7 +56,7 @@ var Link = /** @class */ (function (_super) {
         var _this = _super.call(this, props) || this;
         _this._restrictedOrLimitedCallback = function (restrictedOrLimited) {
             _this.setState({
-                isRestrictedOrLimited: restrictedOrLimited
+                isRestrictedOrLimited: restrictedOrLimited,
             });
         };
         _this._focusableElement = null;
@@ -108,7 +108,7 @@ var Link = /** @class */ (function (_super) {
             }
         };
         _this.state = {
-            isRestrictedOrLimited: false
+            isRestrictedOrLimited: false,
         };
         return _this;
     }
@@ -222,7 +222,7 @@ var Link = /** @class */ (function (_super) {
             this._focusableElement.setNativeProps({
                 tabIndex: tabIndex,
                 isTabStop: windowsTabFocusable,
-                importantForAccessibility: importantForAccessibility
+                importantForAccessibility: importantForAccessibility,
             });
         }
     };

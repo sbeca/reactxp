@@ -29,8 +29,8 @@ var Text_1 = require("../native-common/Text");
 var _styles = {
     defaultText: Styles_1.default.createTextStyle({
         includeFontPadding: false,
-        textAlignVertical: 'center'
-    })
+        textAlignVertical: 'center',
+    }),
 };
 var Text = /** @class */ (function (_super) {
     __extends(Text, _super);

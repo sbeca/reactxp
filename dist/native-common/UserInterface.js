@@ -64,7 +64,7 @@ var UserInterface = /** @class */ (function (_super) {
                 x: x,
                 y: y,
                 width: width,
-                height: height
+                height: height,
             });
         });
         return deferred.promise();
@@ -80,7 +80,7 @@ var UserInterface = /** @class */ (function (_super) {
                 x: x,
                 y: y,
                 width: width,
-                height: height
+                height: height,
             });
         });
         return deferred.promise();
@@ -101,7 +101,7 @@ var UserInterface = /** @class */ (function (_super) {
             x: 0,
             y: 0,
             width: dimensions.width,
-            height: dimensions.height
+            height: dimensions.height,
         };
     };
     UserInterface.prototype.getContentSizeMultiplier = function () {

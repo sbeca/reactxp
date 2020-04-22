@@ -10,9 +10,9 @@ import * as React from 'react';
 import * as RX from './Interfaces';
 export { default as SubscribableEvent, SubscriptionToken } from 'subscribableevent';
 export declare type ReactNode = React.ReactNode;
-export declare type ReactInterface = {
+export interface ReactInterface {
     createElement<P>(type: string, props?: P, ...children: ReactNode[]): React.ReactElement<P>;
-};
+}
 export interface FlexboxParentStyle {
     flexDirection?: 'column' | 'row' | 'column-reverse' | 'row-reverse';
     alignSelf?: 'auto' | 'flex-start' | 'flex-end' | 'center' | 'stretch';
@@ -59,10 +59,10 @@ export interface FlexboxChildrenStyle {
 }
 export interface FlexboxStyle extends FlexboxParentStyle, FlexboxChildrenStyle {
 }
-export declare type InterpolationConfig = {
+export interface InterpolationConfig {
     inputRange: number[];
     outputRange: number[] | string[];
-};
+}
 export declare abstract class AnimatedValue {
     constructor(val: number);
     abstract setValue(value: number): void;
@@ -109,7 +109,7 @@ export interface AnimatedTransformStyle {
     }[];
 }
 export declare type StyleRuleSet<T> = T | number | undefined;
-export declare type StyleRuleSetOrArray<T> = StyleRuleSet<T> | Array<StyleRuleSet<T>>;
+export declare type StyleRuleSetOrArray<T> = StyleRuleSet<T> | StyleRuleSet<T>[];
 export interface StyleRuleSetRecursiveArray<T> extends Array<StyleRuleSetOrArray<T> | StyleRuleSetRecursiveArray<T>> {
 }
 export declare type StyleRuleSetRecursive<T> = StyleRuleSet<T> | StyleRuleSetRecursiveArray<T>;
@@ -369,6 +369,7 @@ export interface TextPropsShared<C = React.Component> extends CommonProps<C> {
     selectable?: boolean;
     numberOfLines?: number;
     allowFontScaling?: boolean;
+    maxFontSizeMultiplier?: number | null;
     ellipsizeMode?: 'head' | 'middle' | 'tail';
     textBreakStrategy?: 'highQuality' | 'simple' | 'balanced';
     importantForAccessibility?: ImportantForAccessibility;
@@ -572,6 +573,7 @@ export interface LinkProps extends CommonStyledProps<LinkStyleRuleSet, RX.Link> 
     selectable?: boolean;
     numberOfLines?: number;
     allowFontScaling?: boolean;
+    maxFontSizeMultiplier?: number | null;
     tabIndex?: number;
     accessibilityId?: string;
     autoFocus?: boolean;
@@ -598,6 +600,7 @@ export interface TextInputPropsShared<C = React.Component> extends CommonProps<C
     value?: string;
     title?: string;
     allowFontScaling?: boolean;
+    maxFontSizeMultiplier?: number | null;
     keyboardAppearance?: 'default' | 'light' | 'dark';
     returnKeyType?: 'done' | 'go' | 'next' | 'search' | 'send';
     disableFullscreenUI?: boolean;
@@ -671,15 +674,15 @@ export declare enum LocationErrorType {
 export declare type LocationWatchId = number;
 export declare type LocationSuccessCallback = (position: Position) => void;
 export declare type LocationFailureCallback = (error: LocationErrorType) => void;
-export declare module Animated {
-    type EndResult = {
+export declare namespace Animated {
+    interface EndResult {
         finished: boolean;
-    };
+    }
     type EndCallback = (result: EndResult) => void;
-    type CompositeAnimation = {
+    interface CompositeAnimation {
         start: (callback?: EndCallback) => void;
         stop: () => void;
-    };
+    }
     interface LoopConfig {
         restartFrom: number;
     }
@@ -700,14 +703,14 @@ export declare module Animated {
     }
     type TimingFunction = (value: RX.Types.AnimatedValue | RX.Types.InterpolatedValue, config: TimingAnimationConfig) => CompositeAnimation;
     let timing: TimingFunction;
-    type SequenceFunction = (animations: Array<CompositeAnimation>) => CompositeAnimation;
+    type SequenceFunction = (animations: CompositeAnimation[]) => CompositeAnimation;
     let sequence: SequenceFunction;
-    type ParallelFunction = (animations: Array<CompositeAnimation>) => CompositeAnimation;
+    type ParallelFunction = (animations: CompositeAnimation[]) => CompositeAnimation;
     let parallel: ParallelFunction;
-    type EasingFunction = {
+    interface EasingFunction {
         cssName: string;
         function: (input: number) => number;
-    };
+    }
     interface Easing {
         Default(): EasingFunction;
         Linear(): EasingFunction;
@@ -723,7 +726,7 @@ export declare module Animated {
         CubicBezier(x1: number, y1: number, x2: number, y2: number): EasingFunction;
     }
 }
-export declare type SyntheticEvent = {
+export interface SyntheticEvent {
     readonly bubbles: boolean;
     readonly cancelable: boolean;
     readonly defaultPrevented: boolean;
@@ -731,7 +734,7 @@ export declare type SyntheticEvent = {
     readonly nativeEvent: any;
     preventDefault(): void;
     stopPropagation(): void;
-};
+}
 export interface ClipboardEvent extends SyntheticEvent {
     clipboardData: DataTransfer;
 }
@@ -786,12 +789,12 @@ export interface WheelEvent extends SyntheticEvent {
     deltaY: number;
     deltaZ: number;
 }
-export declare type ViewOnLayoutEvent = {
+export interface ViewOnLayoutEvent {
     x: number;
     y: number;
     height: number;
     width: number;
-};
+}
 export interface KeyboardEvent extends SyntheticEvent {
     ctrlKey: boolean;
     altKey: boolean;
@@ -801,10 +804,10 @@ export interface KeyboardEvent extends SyntheticEvent {
     key: string;
 }
 export declare let Children: React.ReactChildren;
-export declare type Dimensions = {
+export interface Dimensions {
     width: number;
     height: number;
-};
+}
 export interface EmailInfo {
     to?: string[];
     cc?: string[];

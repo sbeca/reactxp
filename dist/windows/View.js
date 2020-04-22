@@ -250,7 +250,7 @@ var View = /** @class */ (function (_super) {
                             if (e.preventDefault) {
                                 e.preventDefault();
                             }
-                        }
+                        },
                     });
                 };
             }
@@ -279,7 +279,7 @@ var View = /** @class */ (function (_super) {
                             if (e.preventDefault) {
                                 e.preventDefault();
                             }
-                        }
+                        },
                     });
                 };
             }
@@ -451,7 +451,7 @@ var View = /** @class */ (function (_super) {
         // This covers cases where outside the view focusable controls are not controlled and/or not controllable
         // by FocusManager
         var viewProps = {
-            tabNavigation: restricted !== FocusManager_2.RestrictFocusType.Unrestricted ? 'cycle' : 'local'
+            tabNavigation: restricted !== FocusManager_2.RestrictFocusType.Unrestricted ? 'cycle' : 'local',
         };
         this.setNativeProps(viewProps);
     };
@@ -490,7 +490,7 @@ var View = /** @class */ (function (_super) {
             this._focusableElement.setNativeProps({
                 tabIndex: tabIndex,
                 isTabStop: windowsTabFocusable,
-                importantForAccessibility: importantForAccessibility
+                importantForAccessibility: importantForAccessibility,
             });
         }
     };

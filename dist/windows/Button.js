@@ -214,7 +214,7 @@ var Button = /** @class */ (function (_super) {
             this._buttonElement.setNativeProps({
                 tabIndex: tabIndex,
                 isTabStop: windowsTabFocusable,
-                importantForAccessibility: importantForAccessibility
+                importantForAccessibility: importantForAccessibility,
             });
         }
     };

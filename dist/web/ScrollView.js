@@ -38,18 +38,18 @@ var _styles = {
         flexShrink: 1,
         // This forces some browsers (like Chrome) to create a new render context,
         // which can significantly speed up scrolling.
-        transform: 'translateZ(0)'
+        transform: 'translateZ(0)',
     },
     verticalStyle: {
         flexDirection: 'column',
         overflowY: 'auto',
-        overflowX: 'hidden'
+        overflowX: 'hidden',
     },
     horizontalStyle: {
         flexDirection: 'row',
         overflowY: 'hidden',
-        overflowX: 'auto'
-    }
+        overflowX: 'auto',
+    },
 };
 var _initializedCustomStyles = false;
 var _customStyles = {
@@ -59,7 +59,7 @@ var _customStyles = {
         flexDirection: 'column',
         // This forces some browsers (like Chrome) to create a new render context,
         // which can significantly speed up scrolling.
-        transform: 'translateZ(0)'
+        transform: 'translateZ(0)',
     },
     verticalStyle: {},
     horizontalStyle: {},
@@ -67,14 +67,14 @@ var _customStyles = {
         position: 'relative',
         overflow: 'hidden',
         boxSizing: 'border-box',
-        alignSelf: 'stretch'
+        alignSelf: 'stretch',
     },
     customScrollVertical: {
         // Set flex only for vertical scroll view.
         // Don't set flex for horizontal scroll view, otherwise it disappears.
         display: 'flex',
-        flex: '1 1 0px'
-    }
+        flex: '1 1 0px',
+    },
 };
 // Default to once per frame.
 var _defaultScrollThrottleValue = 1000 / 60;
@@ -152,7 +152,7 @@ var ScrollView = /** @class */ (function (_super) {
                 // Fixes a bug for Chrome beta where the parent flexbox (customScrollContainer) doesn't
                 // recognize that its child got populated with items. Smallest default width gives an
                 // indication that content will exist here.
-                minHeight: 0
+                minHeight: 0,
             };
             _customStyles.horizontalStyle = {
                 // The display needs to be set to flex, otherwise the scrollview incorrectly shows up vertically.
@@ -163,7 +163,7 @@ var ScrollView = /** @class */ (function (_super) {
                 // Fixes a bug for Chrome beta where the parent flexbox (customScrollContainer) doesn't
                 // recognize that its child got populated with items. Smallest default width gives an
                 // indication that content will exist here.
-                minWidth: 0
+                minWidth: 0,
             };
         }
         return _this;
@@ -236,7 +236,7 @@ var ScrollView = /** @class */ (function (_super) {
                 this._customScrollbar.init({
                     horizontal: props.horizontal && !horizontalHidden,
                     vertical: !props.horizontal && !verticalHidden,
-                    hiddenScrollbar: horizontalHidden || verticalHidden
+                    hiddenScrollbar: horizontalHidden || verticalHidden,
                 });
             }
         }
